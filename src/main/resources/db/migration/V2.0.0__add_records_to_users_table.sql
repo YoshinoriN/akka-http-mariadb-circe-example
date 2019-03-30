@@ -1,1 +1,1 @@
-INSERT INTO users VALUES('YoshinoriN', now());
+INSERT INTO users(name) VALUES('YoshinoriN');

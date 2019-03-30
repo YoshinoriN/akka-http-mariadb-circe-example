@@ -1,4 +1,4 @@
-package net.yoshinorin.orchard.http
+package net.yoshinorin.akkahttpexample.http
 
 import akka.actor.ActorSystem
 

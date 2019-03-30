@@ -17,8 +17,6 @@ libraryDependencies ++= Seq(
   "com.typesafe.akka" %% "akka-http" % akkaHttpVersion,
   "com.typesafe.akka" %% "akka-actor" % akkaVersion,
   "com.typesafe.akka" %% "akka-stream" % akkaVersion,
-  "com.typesafe.akka" %% "akka-http-testkit" % akkaHttpVersion,
-  "com.typesafe.akka" %% "akka-testkit" % akkaVersion % Test,
   "com.typesafe" % "config" % "1.3.3",
   "io.circe" %% "circe-core" % circeVersion,
   "io.circe" %% "circe-generic" % circeVersion,

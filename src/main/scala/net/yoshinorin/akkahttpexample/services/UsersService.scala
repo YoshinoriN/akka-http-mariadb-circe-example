@@ -1,8 +1,12 @@
 package net.yoshinorin.akkahttpexample.services
 
+import io.circe.Encoder
+import io.circe.generic.semiauto.deriveEncoder
 import net.yoshinorin.akkahttpexample.models.db.{Users, UsersRepository}
 
-object UsersService {
+trait UsersService {
+
+  implicit val encodeUser: Encoder[Users] = deriveEncoder[Users]
 
   /**
    * Get user

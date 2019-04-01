@@ -6,11 +6,10 @@ import akka.http.scaladsl.model._
 import akka.http.scaladsl.server.Directives._
 import akka.stream.ActorMaterializer
 import net.yoshinorin.akkahttpexample.services.UsersService
-
 import scala.concurrent.{ExecutionContext, Future}
 import scala.io.StdIn
 
-object AkkaExampleTwo extends App {
+object AkkaExampleTwo extends App with UsersService {
 
   implicit val actorSystem: ActorSystem = ActorSystem("akkahttpexample")
   implicit val materializer: ActorMaterializer = ActorMaterializer()
@@ -21,7 +20,7 @@ object AkkaExampleTwo extends App {
       complete(HttpEntity(ContentTypes.`application/json`, "{\"message\": \"Hello Akka HTTP!!\"}"))
     } ~ pathPrefix("users") {
       pathPrefix(".+".r) { userName =>
-        UsersService.getUser(userName) match {
+        getUser(userName) match {
           case Some(u) => complete(HttpEntity(ContentTypes.`application/json`, s"$u"))
           case _ => complete(HttpEntity(ContentTypes.`application/json`, "{\"message\": \"Not Found\"}"))
         }
